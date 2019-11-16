@@ -4,8 +4,8 @@
 upon the many factors where are here carrying the articles success rate is depend upon the no of shares on the particular articles.
 
 ## SOLUTION
-• We are do factor the data analysis to determine which factor/features high imfact the dependent varibles.
-• For this PCA/Standscalar is we are used for the dimension reduction.
+• We are do factor the data analysis to determine which factor/features high imfact the dependent varibles. \n
+• For this PCA/Standscalar is we are used for the dimension reduction. \n
 • Then apply the different kind of regression algorithm.
 
 ## KEY ISSUES 
