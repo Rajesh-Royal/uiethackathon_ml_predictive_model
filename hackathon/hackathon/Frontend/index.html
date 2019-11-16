@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Predicting No. of shares on Article</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+
+  <!-- Bootstrap CSS File -->
+  <link href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{{ url_for('static', filename='lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='lib/animate/animate.min.css') }}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!--  Header -->
+  <header id="header" class="fixed-top">
+    <div class="container">
+
+      <div class="logo float-left">
+        <!-- comment first line and uncomment second line to use image logo -->
+        <h1 class="text-light"><a href="#header"><span>Success Prediction</span></a></h1>
+        <!--<a href="#intro" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
+      </div>
+    </div>
+  </header><!-- #header -->
+
+  <!--   Intro Section -->
+  <section id="intro" class="clearfix">
+    <div class="container">
+
+      <div class="intro-img">
+        <div class="first-image">
+          <img src="{{ url_for('static', filename='img/main.png') }}" alt="" class="img-fluid " />
+        </div>
+        <div><img src="{{ url_for('static', filename='img/person.png') }}" alt="" class="second-image" width="200px" /></div>
+
+      </div>
+
+      <div class="intro-info">
+        <h2>ML model for Predicting Article <span>Shares</span></h2>
+        <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing
+          layouts and visual mockups.</p>
+        <div>
+          <a href="#content-area" class="btn-get-started scrollto">Start Prediction <i
+              class="fa fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #intro -->
+
+  <!--   Content Area -->
+  <section id="content-area" class="clearfix">
+    <div class="container">
+
+      <form action="" method="POST" class="form-container" id="myform">
+
+        <div for="inp" class="inp form-group">
+          <input type="text" id="inp" class="form-control" placeholder="&nbsp;" autocomplete="off" name="n_non_stop_words">
+          <span class="label">Number of non-stop words</span>
+          <span class="border"></span>
+        </div>
+
+        <div for="inp" class="inp form-group">
+          <input type="text" id="inp" class="form-control" placeholder="&nbsp;" name="self_reference_avg_sharess">
+          <span class="label">Avg. shares of referenced articles in Mashable</span>
+          <span class="border"></span>
+        </div>
+
+        <div for="inp" class="inp form-group">
+          <input type="text" id="inp" class="form-control" placeholder="&nbsp;" name="abs_title_sentiment_polarity">
+          <span class="label">Absolute polarity level</span>
+          <span class="border"></span>
+        </div>
+
+        <div for="inp" class="inp form-group">
+          <input type="text" id="inp" class="form-control" placeholder="&nbsp;" name="n_tokens_content">
+          <span class="label">Number of words in the content : </span>
+          <span class="border"></span>
+        </div>
+
+        <div for="inp" class="inp form-group">
+          <input type="text" id="inp" class="form-control" placeholder="&nbsp;" name="rate_negative_words">
+          <span class="label">Rate of negative words among non-neutral tokens : </span>
+          <span class="border"></span>
+        </div>
+
+
+        <!--submit button-->
+        <div class="form-group">
+          <input type="submit" id="showme" class="form-control btn btn-danger" value="Predict Result"/>
+        </div>
+      </form>
+
+       <!--result of form-->
+      <div class="form-container result">
+        <div>
+          Result of Prediction
+        </div>
+		<!-- for loop to iter the items in the dictionary -->
+        {% if result %} {% for variable, value in original_input.items() %}
+        <b>{{ variable }}</b> : {{ value }} {% endfor %}
+        <br>
+        <br>
+        <p style="font-size:50px">{{ result }}</p>
+        {% endif %}
+      </div>
+
+
+    </div>
+  </section><!-- #content-area -->
+<!--script to show result div when user click on submit button prevent default form to open link in new tab-->
+<script>
+  document.getElementById("myform").addEventListener("click", function(event){
+  //event.preventDefault()
+});
+</script>
+
+  <!--   Footer -->
+  <footer id="footer" style="margin-top: 20px;">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>vikas_code_wars</strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!--Jquery files -->
+  <script src="{{ url_for('static', filename='lib/js/jquery-3.4.1.min.js') }}"></script>
+  <!--Main Javascript File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>
